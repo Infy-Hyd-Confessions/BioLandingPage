@@ -144,6 +144,10 @@ header .btns .btn{
   color: var(--secondary);
   line-height: 1.25;
 }
+#hero div .highlight{
+  /* font-size: 1.5em; */
+  color: #FC5404;
+}
 
 #hero .btn{
   width : 100%;
@@ -207,6 +211,7 @@ footer .card .icon{
 footer .card:last-child .icon{
   color: #00FFA8;
 }
+
 
 @media (max-width: 1000px){
   header{
