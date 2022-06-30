@@ -309,12 +309,12 @@ label, textarea{
 	display: block;	
 }
  textarea{
-	width: 500px;	
+	width: 100%;	
 	border: none;
 	border-radius: 20px;
 	outline: none;
 	padding: 10px;
-	font-size: 1.25em;
+	font-size: 1em;
 	color: #070707;
 	transition: border 0.5s;
 	-webkit-transition: border 0.5s;
@@ -334,8 +334,8 @@ label, textarea{
 }
 
 textarea{
-	height: 100px;	
-	resize: none; 
+	height: 200px;	
+	resize: vertical; 
 	overflow: auto;
 }
 
@@ -343,5 +343,5 @@ label{
 	font-size: 1.5em;
 	margin-top: 20px;
   color: #ffff;
-	padding-left: 20px;
+
 }

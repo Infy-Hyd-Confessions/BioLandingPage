@@ -8,12 +8,13 @@ function postQuery() {
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
 
     var raw = JSON.stringify({
         "message": message.value,
         "ip": ip
     });
-
+    // console.log(raw);
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -23,15 +24,19 @@ function postQuery() {
 
     fetch("https://infy-hyd-jarvis-bot-telegram.herokuapp.com/postMessage", requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        .then(result => 
+            alert(result))
+        .catch(error => console.log('error', error))
+        .then(() => window.open("index.html", "_self"));
+
+        
 }
 }
 
 //get current ip address and store it in ip variable
 function getIP() {
-    json('http://ip-api.com/json').then(data => {
-        ip = data;
+    json('https://jsonip.com').then(data => {
+        ip = data.ip;
     });
 }
 
