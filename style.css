@@ -291,7 +291,7 @@ footer .card:last-child .icon{
 
 ::-webkit-scrollbar
 {
-	width: 10px;
+	width: 15px;
 	background-color: var(--bg);
 }
 
@@ -304,4 +304,44 @@ footer .card:last-child .icon{
 									   color-stop(0.44, rgb(122,153,217)),
 									   color-stop(0.72, rgb(73,125,189)),
 									   color-stop(0.86, rgb(28,58,148)));
+}
+label, textarea{
+	display: block;	
+}
+ textarea{
+	width: 500px;	
+	border: none;
+	border-radius: 20px;
+	outline: none;
+	padding: 10px;
+	font-size: 1.25em;
+	color: #070707;
+	transition: border 0.5s;
+	-webkit-transition: border 0.5s;
+	-moz-transition: border 0.5s;
+	-o-transition: border 0.5s;
+	border: solid 3px #98d4f3;	
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  
+}
+ textarea:focus{
+	border: solid 3px #77bde0;	
+}
+
+textarea{
+	height: 100px;	
+	resize: none; 
+	overflow: auto;
+}
+
+label{
+	font-size: 1.5em;
+	margin-top: 20px;
+  color: #ffff;
+	padding-left: 20px;
 }
