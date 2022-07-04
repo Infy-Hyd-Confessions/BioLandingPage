@@ -41,13 +41,21 @@ function getIP() {
 }
 
 function writeQuery() {
-    alert("Make sure you are writing the query in detail");
-    window.open("writeQuery.html", "_self")
+    text="Make sure you are writing the query in detail"
+    if (confirm(text)== true){
+        console.log("true is received")
+        window.open("writeQuery.html", "_self")
+    }  
 }
 
 function writeConfession() {
-    alert("Make sure you are writing the confession and not a query");
-    window.open("writeConfession.html", "_self")
+    text="Make sure you are writing only the confession and not a query. \nif you are writing a query press 'Cancel'"
+    if (confirm(text)== true){
+        window.open("writeConfession.html", "_self")
+    }
+    else{
+        window.open("writeQuery.html", "_self")
+    }
 }
 
 function json(url) {
