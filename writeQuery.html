@@ -8,36 +8,35 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
+  <script src="script.js"></script>
 </head>
 
-<body oncontextmenu="return false">
+<body oncontextmenu="return false" onload="getIP()">
   <!-- partial:index.partial.html -->
   <header>
-  <h1 class="logo">Infy Hyd Confessions</h1>
+    <h1 onclick="location.href ='index.html';" class="logo">Infy Hyd Confessions</h1>
     <div class="left">
-      
+
       <br>
       <ul>
-        <li onclick="location.href ='index.html';">Home</li>
-        <li onclick="location.href ='writeConfession.html';" >Page Rules</a></li>
+        <li onclick="location.href ='index.html';" class="active">Home</li>
+        <li onclick="location.href ='writeConfession.html';">Page Rules</a></li>
         <li onclick="location.href ='imageCollection.html';">Photos</a></li>
-        <li onclick="location.href ='aboutUs.html';" class="active">About Us</li>
+        <li onclick="location.href ='aboutUs.html';">About Us</li>
       </ul>
     </div>
   </header>
   <section id="hero">
-    <img src="./res/logoBig-noBg.png" alt="">
+    <img src="./res/writeQuery.png" alt="">
     <div class="left">
-      <h5>Available most of the time &#128517;</h5>
-      <h1 class="title">About Us &amp; Who we are</h1>
-      <p class="descRules">
-      </p>
-      <!--- Sample for Referance
-      <button onclick="location.href ='';" class="btn btn-secondary">Text</button>
-      -->
 
+      <label for="message">Your Query:</label>
+      <textarea id="message" name="message"
+        placeholder="Please elobarate your question in detail before hitting post"></textarea>
+      <br>
+
+      <button onclick="postQuery()" class="btn btn-primary">Post Query ✍️</button>
     </div>
-
   </section>
   <footer>
     <div class="card">

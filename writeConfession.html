@@ -13,19 +13,20 @@
 <body oncontextmenu="return false">
   <!-- partial:index.partial.html -->
   <header>
-  <h1 class="logo">Infy Hyd Confessions<span>.</span></h1>
+  <h1 onclick="location.href ='index.html';" class="logo">Infy Hyd Confessions</h1>
     <div class="left">
       
       <br>
       <ul>
         <li onclick="location.href ='index.html';">Home</li>
         <li onclick="location.href ='writeConfession.html';" class="active">Page Rules</a></li>
+        <li onclick="location.href ='imageCollection.html';">Photos</a></li>
         <li onclick="location.href ='aboutUs.html';">About Us</li>
       </ul>
     </div>
   </header>
   <section id="hero">
-    <img src="./res/logoBig-noBg.png" alt="">
+    <img src="./res/writeconfession.png" alt="">
     <div class="left">
       <h5>Available most of the time &#128517;</h5>
       <h1 class="title">Read following Rules Before Writing a Confession</h1>
@@ -36,6 +37,7 @@
         our
         <a style="text-decoration: none; color: #FC5404;" href="http://t.me/infy_hyd_confessions">Telegram
           Group</a>.<br><br>
+          Alternatively you can post your query anonymously in Telegram by clicking <a style="text-decoration: none; color: #FC5404;" href="writeQuery.html">here</a><br><br>
         3. Never confess against our organization and it's policies.<br><br>
         4. Do not abuse anyone.<br><br>
         5. We don't want your Matrimonial Profile or Love Application. Please keep them with you !!!<br>
@@ -47,8 +49,7 @@
         **All rights reserved with the admin.</p>
 
       <p>
-      <input type="checkbox" id="termsChkbx " onchange="isChecked(this, 'sub1')" /> 
-      <label for="termsChkbx">I Agree to Terms &amp; Conditions / Rules</label>
+      <input type="checkbox" id="termsChkbx " onchange="isChecked(this, 'sub1')" /> <label for="termsChkbx">I Agree to Terms &amp; Conditions / Rules</label>
       </p>
       <button onclick="location.href ='https://bit.ly/InfyHydConfessions2022Jun';" class="btn btn-primary"
         hidden="true" id="confession">Write Confession ✍️</button>
@@ -72,13 +73,13 @@
       </div>
       <div class="content">
         <h3>Where are we 🐱‍💻 </h3>
-        <p>
-          <a>Available on </a>
-          <a style="text-decoration: none; color: inherit;"
+        <p>Available on
+          <a class="socialmedia" style="text-decoration: none; color: red;"
             href="http://instagram.com/infy_hyd_confessions">Instagram</a>
           &amp;
-          <a style="text-decoration: none; color: inherit;" href="http://t.me/infy_hyd_confessions">Telegram</a></p>
-
+          <a class="socialmedia" style="text-decoration: none; color: red;"
+            href="http://t.me/infy_hyd_confessions">Telegram</a>
+        </p>
       </div>
     </div>
     <div class="card">
