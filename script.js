@@ -9,8 +9,7 @@ function postQuery() {
         myHeaders.append("Access-Control-Allow-Origin", "*");
 
         var raw = JSON.stringify({
-            "message": message.value,
-            "ip": ip
+            "message": message.value
         });
         // console.log(raw);
         var requestOptions = {
