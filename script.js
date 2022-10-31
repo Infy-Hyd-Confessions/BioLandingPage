@@ -4,6 +4,8 @@ function postQuery() {
     if (document.getElementById("message").value == "") {
         alert("Please enter your query");
     } else {
+        pq_button.disabled = true;
+        pq_button.className = "btn btn-disabled"
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("Access-Control-Allow-Origin", "*");
@@ -23,6 +25,7 @@ function postQuery() {
             .then(response => response.text())
             .then(result =>
                 alert(result))
+            // .then(result => message.value="")
             .catch(error => console.log('error', error))
             .then(() => window.open("index.html", "_self"));
     }
