@@ -128,7 +128,8 @@ header .btns .btn{
   content: "\f111";
   font-family: "Font Awesome 5 Free";
   margin-right: 5px;
-  color: #ffc400;
+  color: #24FF00 
+  /* #ffc400; */
 }
 
 #hero .left .title{
