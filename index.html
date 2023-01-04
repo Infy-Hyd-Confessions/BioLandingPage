@@ -9,6 +9,35 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
   <script src="script.js"></script>
+  <script>
+var requestOptions = {
+  method: 'GET',
+  headers: {
+    'Access-Control-Allow-Origin':'*'
+  },
+  mode: 'cors',
+  redirect: 'follow'
+};
+
+fetch("https://surveyheart.com/form/62b2ab90a9e72514af308221", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+  var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://surveyheart.com/form/62b2ab90a9e72514af308221");
+xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+xhr.send();
+  </script>
 </head>
 
 <body oncontextmenu="return false">
@@ -36,7 +65,7 @@
       <p class="desc">Every important link related to page is shown below. Choose wherever you want to go and have fun
         💻</p>
 
-       <button onclick="writeConfession()" class="btn btn-primary">Write Confession ✍️</button>
+       <button onclick="writeConfession()" class="btn btn-primary" id="writeConfessionBtn" >Write Confession ✍️</button>
        <button onclick="writeQuery()" class="btn btn-primary">Ask Your Query 🪶</button> 
        <button onclick="location.href ='https://t.me/infosyshyd';" class="btn btn-secondary">Join Telegram Group
         👻</button>
