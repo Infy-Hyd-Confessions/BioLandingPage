@@ -21,7 +21,7 @@ function postQuery() {
             redirect: 'follow'
         };
 
-        fetch("https://infy-hyd-jarvis-bot-telegram.herokuapp.com/postMessage", requestOptions)
+        fetch("https://jarvis-ihcp-vercel.vercel.app/postMessage", requestOptions)
             .then(response => response.text())
             .then(result =>
                 alert(result))
