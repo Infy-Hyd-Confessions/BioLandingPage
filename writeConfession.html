@@ -2,69 +2,53 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3SY8F9P01"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-Q3SY8F9P01');
+    </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Infy Hyd Confessions</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
+  <script src="script.js"></script>
 </head>
 
 <body oncontextmenu="return false">
   <!-- partial:index.partial.html -->
   <header>
-  <h1 onclick="location.href ='index.html';" class="logo">Infy Hyd Confessions</h1>
+    <h1 onclick="location.href ='index.html';" class="logo">Infy Hyd Confessions</h1>
     <div class="left">
-      
+
       <br>
       <ul>
-        <li onclick="location.href ='index.html';">Home</li>
-        <li onclick="location.href ='writeConfession.html';" class="active">Page Rules</a></li>
-        <li onclick="location.href ='imageCollection.html';">Photos</a></li>
+        <li onclick="location.href ='index.html';" class="active">Home</li>
+        <li onclick="location.href ='writeConfessionRules.html';">Page Rules</li>
+        <li onclick="location.href ='imageCollection.html';">Photos</li>
         <li onclick="location.href ='aboutUs.html';">About Us</li>
       </ul>
     </div>
   </header>
   <section id="hero">
-    <img src="./res/writeconfession.png" alt="">
+    <img src="./res/writeConfession.png" alt="">
     <div class="left">
-      <h5>Available most of the time &#128517;</h5>
-      <h1 class="title">Read following Rules Before Writing a Confession</h1>
-      <p class="descRules">
-        Hi, your confession is anonymous feel free to share.<br><br>
-        1. Try to keep the confession in english language.<br><br>
-        2. All the Queries related to our Organisation, Hikes, Promotions &amp; Your Job offers etc.. should be asked in
-        our
-        <a style="text-decoration: none; color: #FC5404;" href="http://t.me/infy_hyd_confessions">Telegram
-          Group</a>.<br><br>
-          Alternatively you can post your query anonymously in Telegram by clicking <a style="text-decoration: none; color: #FC5404;" href="writeQuery.html">here</a><br><br>
-        3. Never confess against our organization and it's policies.<br><br>
-        4. Do not abuse anyone.<br><br>
-        5. We don't want your Matrimonial Profile or Love Application. Please keep them with you !!!<br>
-        <br>
-        If your confession is still not posted, DM us on our
-        <a style="text-decoration: none; color: #FC5404;" href="http://instagram.com/infy_hyd_confessions">Instagram
-          handle.</a><br>
-        <br>
-        **All rights reserved with the admin.</p>
 
-      <p>
-      <input type="checkbox" id="termsChkbx " onchange="isChecked(this, 'sub1')" /> <label for="termsChkbx">I Agree to Terms &amp; Conditions / Rules</label>
-      </p>
-      <button onclick="location.href ='https://bit.ly/InfyHydConfessions2022Jun';" class="btn btn-primary"
-        hidden="true" id="confession">Write Confession ✍️</button>
+      <!-- <label for="message">Your Age & Gender:</label> -->
+      <label for="message">Your Confession:</label>
+      <input type="text" id="age_gender" name="age_gender" placeholder="24/M" autocomplete="off">
+      </br>
+      <textarea id="message" name="message"
+        placeholder="Confess away your thoughts.."></textarea>
+      <br>
 
-      <!--- Sample for Referance
-      <button onclick="location.href ='';" class="btn btn-secondary">Text</button>
-      -->
-      <script type="text/javascript">
-        function isChecked(checkbox, sub1) {
-          document.getElementById('confession').hidden = !checkbox.checked;
-        }
-      </script>
-
+      <button onclick="postConfession()" class="btn btn-primary">Post Confession</button>
     </div>
-
   </section>
   <footer>
     <div class="card">
@@ -75,10 +59,10 @@
         <h3>Where are we 🐱‍💻 </h3>
         <p>Available on
           <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://instagram.com/infy_hyd_confessions">Instagram</a>
+            href="http://instagram.com/infy_hyd_confessions_ihcp">Instagram</a>
           &amp;
           <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://t.me/infy_hyd_confessions">Telegram</a>
+            href="http://t.me/infy_hyd_confessions_ihcp">Telegram</a>
         </p>
       </div>
     </div>
