@@ -25,7 +25,7 @@ function postQuery() {
             redirect: 'follow'
         };
 
-        fetch(host + "/postQuery", requestOptions)
+        fetch(host + "/postMessage", requestOptions)
             .then(response => response.text())
             .then(result =>
                 alert(result))
