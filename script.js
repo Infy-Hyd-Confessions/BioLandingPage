@@ -90,7 +90,7 @@ function writeQuery() {
 function writeConfession() {
     text = "Make sure you are writing only the confession and not a query. \nif you are writing a query press 'Cancel'"
     if (confirm(text) == true) {
-        window.open("writeConfession.html", "_self")
+        window.open("writeConfessionRules.html", "_self")
     }
     else {
         window.open("writeQuery.html", "_self")
