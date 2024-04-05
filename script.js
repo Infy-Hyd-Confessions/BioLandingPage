@@ -8,6 +8,7 @@ function postQuery() {
     if (document.getElementById("message").value == "") {
         alert("Please enter your query");
     } else {
+        pq_button.innerText = "Submitting...."
         pq_button.disabled = true;
         pq_button.className = "btn btn-disabled"
         var myHeaders = new Headers();
@@ -41,8 +42,9 @@ function postQuery() {
 
 function postConfession() {
     if (document.getElementById("message").value == "") {
-        alert("Please enter your query");
+        alert("Please enter your Confession");
     } else {
+        pc_button.innerText = "Submitting...."
         pc_button.disabled = true;
         pc_button.className = "btn btn-disabled"
         var myHeaders = new Headers();
@@ -90,13 +92,32 @@ function writeQuery() {
 }
 
 function writeConfession() {
-    text = "Make sure you are writing only the confession and not a query. \nif you are writing a query press 'Cancel'"
-    if (confirm(text) == true) {
-        window.open("writeConfessionRules.html", "_self")
-    }
-    else {
-        window.open("writeQuery.html", "_self")
-    }
+    confession.innerText = "Loading...."
+    confession.disabled = true;
+    confession.className = "btn btn-disabled"
+    fetch(host + "/formStatus", {
+        method: 'GET', // or 'POST' if required
+        headers: {
+            'Content-Type': 'text/plain;charset=UTF-8',
+        },
+    })
+    .then(response => response.text())
+    .then(responseText => {
+        if (responseText === '1') {
+            text = "Make sure you are writing only the confession and not a query. \nif you are writing a query press 'Cancel'"
+            if (confirm(text) == true) {
+                window.open("writeConfessionRules.html", "_self")
+            }
+            else {
+                window.open("writeQuery.html", "_self")
+            }
+        } else if (responseText === '0') {
+            window.location.href = 'FormStatus.html'; // Redirect to another.html
+        }
+    })
+    .catch(error => console.error('Error:', error));
+    
+
 }
 
 function json(url) {
