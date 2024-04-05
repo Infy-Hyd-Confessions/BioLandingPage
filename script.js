@@ -43,12 +43,14 @@ function postConfession() {
     if (document.getElementById("message").value == "") {
         alert("Please enter your query");
     } else {
+        pc_button.disabled = true;
+        pc_button.className = "btn btn-disabled"
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("Access-Control-Allow-Origin", "*");
         
         var raw = JSON.stringify({
-            "message": age_gender.value + "\n\n" + message.value
+            "message": (age_gender.value + "\n\n" + message.value).trim()
         });
         console.log(raw);
         var requestOptions = {
