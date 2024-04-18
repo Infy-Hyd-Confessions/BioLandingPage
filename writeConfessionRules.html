@@ -11,6 +11,13 @@
   
       gtag('config', 'G-Q3SY8F9P01');
     </script>
+    <script>
+      // Check if document.referrer ends with /index.html
+      if (!document.referrer.endsWith('/index.html')) {
+          // Redirect the user back to index.html
+          window.location.href = 'index.html';
+      }
+    </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IHCP - Confession Rules</title>
@@ -28,7 +35,6 @@
       <br>
       <ul>
         <li onclick="location.href ='index.html';">Home</li>
-        <li onclick="location.href ='writeConfessionRules.html';" class="active">Page Rules</li>
         <li onclick="location.href ='imageCollection.html';">Photos</li>
         <li onclick="location.href ='aboutUs.html';">About Us</li>
       </ul>
