@@ -4,6 +4,18 @@ var ip = "";
 // var host = "https://jarvis-ihcp-dev.vercel.app"
 var host = "https://jarvis-ihcp.vercel.app"
 
+const maxChars = 1500
+
+// Update character count on every key press
+function checkLength(){    
+    const textLength = message.value.length;
+    current.textContent = maxChars - textLength;
+    
+    if (textLength > maxChars) {
+        message.value = message.value.substring(0, maxChars);
+    }
+  }
+
 function postQuery() {
     if (document.getElementById("message").value == "") {
         alert("Please enter your query");

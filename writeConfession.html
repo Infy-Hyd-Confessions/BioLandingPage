@@ -50,8 +50,13 @@
       <label for="message">Your Confession:</label>
       <input type="text" id="age_gender" name="age_gender" placeholder="24/M" autocomplete="off">
       </br>
-      <textarea id="message" name="message"
+      <div class="wrapper">
+      <textarea id="message" name="message" onkeyup="checkLength()" maxlength="1500"
         placeholder="Confess away your thoughts.."></textarea>
+        <div id="char-count" style="color: white;">
+          <span id="current" >1500</span> characters remaining
+        </div>
+      </div>
       <br>
 
       <button onclick="postConfession()" id="pc_button" class="btn btn-primary">Post Confession</button>
