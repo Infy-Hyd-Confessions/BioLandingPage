@@ -4,7 +4,7 @@ var ip = "";
 // var host = "https://jarvis-ihcp-dev.vercel.app"
 var host = "https://jarvis-ihcp.vercel.app"
 
-const maxChars = 1600
+const maxChars = 2000
 
 // Update character count on every key press
 function checkLength(){    
