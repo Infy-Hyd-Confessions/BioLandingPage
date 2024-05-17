@@ -107,6 +107,16 @@ function writeConfession() {
     confession.innerText = "Loading...."
     confession.disabled = true;
     confession.className = "btn btn-disabled"
+
+// Get the current day of the week (0 for Sunday, 6 for Saturday)
+    const currentDay = new Date().getDay();
+    
+    // Check if it's Saturday (6) or Sunday (0)
+    if (currentDay === 0 || currentDay === 6) {
+        window.location.href = 'FormStatus.html';
+        return; // Skip the rest of the function
+    }
+
     fetch(host + "/formStatus", {
         method: 'GET', // or 'POST' if required
         headers: {
