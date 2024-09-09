@@ -112,7 +112,7 @@ function writeConfession() {
     const currentDay = new Date().getDay();
     
     // Check if it's Saturday (6) or Sunday (0)
-    if (currentDay < 10) {
+    if (currentDay === 0 || currentDay === 6) {
         window.location.href = 'FormStatus.html';
         return; // Skip the rest of the function
     }
