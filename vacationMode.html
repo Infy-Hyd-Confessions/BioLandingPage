@@ -1,33 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Infy Hyd Confessions - Vacation Mode</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3SY8F9P01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q3SY8F9P01');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Inactive</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
 </head>
-<body>
-    <header>
-        <h1>Infy Hyd Confessions</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="photos.html">Photos</a></li>
-                <li><a href="about.html">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="vacation-mode">
-            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/woman-going-on-a-vacation-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--holiday-plans-leisure-travel-destination-preparation-pack-illustrations-7190598.png" alt="Vacation Mode">
-            <h2>We're on Vacation!</h2>
-            <p>Our team is currently on vacation and will not be accepting new confessions during this period. Please check back with us after the holidays.</p>
-            <p>Thank you for your understanding!</p>
-            <a href="index.html" class="button">Go Home</a>
-        </section>
-    </main>
-    <footer>
-        <p>Available on <a href="https://www.instagram.com/infy_hyd_confessions/">Instagram</a> & <a href="https://t.me/infy_hyd_confessions">Telegram</a></p>
-        <p>Do not write offensive content which may hurt fellow users</p>
-    </footer>
+
+<body oncontextmenu="return false">
+  <!-- partial:index.partial.html -->
+  <header>
+  <h1 class="logo">Infy Hyd Confessions</h1>
+    <div class="left">
+      
+      <br>
+      <ul>
+        <li onclick="location.href ='index.html';">Home</li>
+        <li onclick="location.href ='imageCollection.html';">Photos</a></li>
+        <li onclick="location.href ='aboutUs.html';" class="active">About Us</li>
+      </ul>
+    </div>
+  </header>
+  <section id="hero">
+    <img src="./res/oops.png" alt="">
+    <div class="left">
+      <h5>Not Available till 1st week of Jan 2025 &#851212;</h5>
+      <h1 class="title">Ooops.... You caught us on our Vacation 🥳</h1>
+	  <p >We are on vacation and not accepting confessions till Jan 1st week. Please try then.</p>
+	  <button onclick="location.href ='index.html';" class="btn btn-primary">Go Home 🏡</button>
+
+    <p >or go Check our DC Photos Collection</p>
+	  <button onclick="location.href ='imageCollection.html';" class="btn btn-primary">Go Home 🏡</button>
+
+
+      <!--- Sample for Referance
+      <button onclick="location.href ='';" class="btn btn-secondary">Text</button>
+      -->
+
+    </div>
+
+  </section>
+  <footer>
+    <div class="card">
+      <div class="icon">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <div class="content">
+        <h3>Where are we 🐱‍💻 </h3>
+        <p>Available on
+          <a class="socialmedia" style="text-decoration: none; color: red;"
+            href="http://instagram.com/infy_hyd_confessions_ihcp">Instagram</a>
+          &amp;
+          <a class="socialmedia" style="text-decoration: none; color: red;"
+            href="http://t.me/infy_hyd_confessions_ihcp">Telegram</a>
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="icon">
+        <i class="fas fa-code"></i>
+      </div>
+      <div class="content">
+        <h3>Clean Confession</h3>
+        <p>Do not write offensive confessions which may hurt fellow users</p>
+      </div>
+    </div>
+  </footer>
+  <!-- partial -->
+
 </body>
+
 </html>
