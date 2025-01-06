@@ -4,17 +4,25 @@ var ip = "";
 // var host = "https://jarvis-ihcp-dev.vercel.app"
 var host = "https://jarvis-ihcp.vercel.app"
 
-const maxChars = 2000
+const maxChars = 2000;
 
 // Update character count on every key press
-function checkLength(){    
-    const textLength = message.value.length;
-    current.textContent = maxChars - textLength;
+function checkLength() {
+    const text = message.value;
+    const textLength = text.length;
     
-    if (textLength > maxChars) {
-        message.value = message.value.substring(0, maxChars);
+
+    current.textContent = maxChars - textLength;
+
+    // If the text starts with a dollar symbol, exit the function
+    if (text.startsWith('$')) {
+        return;
     }
-  }
+
+    if (textLength > maxChars) {
+        message.value = text.substring(0, maxChars);
+    }
+}
 
 function postQuery() {
     if (document.getElementById("message").value == "") {
