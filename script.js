@@ -134,7 +134,7 @@ function writeConfession() {
     .then(response => response.text())
     .then(responseText => {
         if (responseText === '1') {
-            text = "Make sure you are writing only the story and not a query. \nif you are writing a query press 'Cancel'"
+            text = "Make sure you are submitting only the story and not a query. \nif you are writing a query press 'Cancel'"
             if (confirm(text) == true) {
                 window.open("writeConfessionRules.html", "_self")
             }
