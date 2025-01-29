@@ -13,15 +13,16 @@
     </script>
 <script>
   // Check if document.referrer ends with /writeConfessionRules.html
-  if (!document.referrer.endsWith('/writeConfessionRules.html') && !document.referrer.endsWith('/aboutUs.html') ) {
+  if (!document.referrer.endsWith('/writeConfessionRules.html') && !document.referrer.endsWith('/aboutUs .html') ) {
       // Redirect the user back to index.html
+      console.log(document.referrer)
       window.location.href = 'index.html';
   }
 </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IHCP - Write Confession</title>
+  <title>Write Story</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
@@ -31,7 +32,7 @@
 <body>
   <!-- partial:index.partial.html -->
   <header>
-    <h1 onclick="location.href ='index.html';" class="logo">Infy Hyd Confessions</h1>
+    <h1 onclick="location.href ='index.html';" class="logo">Infy Stories</h1>
     <div class="left">
 
       <br>
@@ -47,7 +48,7 @@
     <div class="left">
 
       <!-- <label for="message">Your Age & Gender:</label> -->
-      <label for="message">Your Confession:</label>
+      <label for="message">Your Story:</label>
       <input type="text" id="age_gender" name="age_gender" placeholder="24/M" autocomplete="off">
       </br>
       <div class="wrapper">
@@ -59,7 +60,7 @@
       </div>
       <br>
 
-      <button onclick="postConfession()" id="pc_button" class="btn btn-primary">Post Confession</button>
+      <button onclick="postConfession()" id="pc_button" class="btn btn-primary">Post Story</button>
     </div>
   </section>
   <footer>
@@ -71,10 +72,10 @@
         <h3>Where are we 🐱‍💻 </h3>
         <p>Available on
           <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://instagram.com/infy_hyd_confessions_ihcp">Instagram</a>
+            href="http://instagram.com/infy_stories">Instagram</a>
           &amp;
           <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://t.me/infy_hyd_confessions_ihcp">Telegram</a>
+            href="http://t.me/infy_stories">Telegram</a>
         </p>
       </div>
     </div>
@@ -83,8 +84,8 @@
         <i class="fas fa-code"></i>
       </div>
       <div class="content">
-        <h3>Clean Confession</h3>
-        <p>Do not write offensive confessions which may hurt fellow users</p>
+        <h3>Clean Story</h3>
+        <p>Do not write offensive stories which may hurt fellow users</p>
       </div>
     </div>
   </footer>

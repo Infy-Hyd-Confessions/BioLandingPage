@@ -62,7 +62,7 @@ function postQuery() {
 
 function postConfession() {
     if (document.getElementById("message").value == "") {
-        alert("Please enter your Confession");
+        alert("Please enter your Story");
     } else {
         pc_button.innerText = "Submitting...."
         pc_button.disabled = true;
@@ -112,9 +112,9 @@ function writeQuery() {
 }
 
 function writeConfession() {
-    confession.innerText = "Loading...."
-    confession.disabled = true;
-    confession.className = "btn btn-disabled"
+    story.innerText = "Loading...."
+    story.disabled = true;
+    story.className = "btn btn-disabled"
 
 // Get the current day of the week (0 for Sunday, 6 for Saturday)
     const currentDay = new Date().getDay();
@@ -134,7 +134,7 @@ function writeConfession() {
     .then(response => response.text())
     .then(responseText => {
         if (responseText === '1') {
-            text = "Make sure you are writing only the confession and not a query. \nif you are writing a query press 'Cancel'"
+            text = "Make sure you are writing only the story and not a query. \nif you are writing a query press 'Cancel'"
             if (confirm(text) == true) {
                 window.open("writeConfessionRules.html", "_self")
             }
