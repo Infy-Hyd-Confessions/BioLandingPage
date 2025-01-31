@@ -53,7 +53,7 @@ function postQuery() {
             // .then(result => message.value="")
             .catch(error => console.log('error', error))
             .then(() => {
-                window.open("https://t.me/infosys_queries", "_self");
+                window.open("https://t.me/infy_queries", "_self");
                 // window.open("index.html", "_self")
             });
     }
