@@ -14,10 +14,12 @@
 <script>
   // Check if document.referrer ends with /writeConfessionRules.html
   console.log((!document.referrer.endsWith('/writeConfessionRules.html') && !document.referrer.endsWith('/aboutUs.html') ))
-  if (!document.referrer.endsWith('/writeConfessionRules.html') && !document.referrer.endsWith('/aboutUs .html') ) {
+  if (!document.referrer.endsWith('/writeConfessionRules.html') && !document.referrer.endsWith('/aboutUs.html') ) {
       // Redirect the user back to index.html
       console.log(document.referrer)
       window.location.href = 'index.html';
+  }else{
+    console.log("Opening Story suubmission page")
   }
 </script>
 
