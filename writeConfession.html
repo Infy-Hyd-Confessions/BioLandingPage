@@ -13,6 +13,7 @@
     </script>
 <script>
   // Check if document.referrer ends with /writeConfessionRules.html
+  console.log((!document.referrer.endsWith('/writeConfessionRules.html') && !document.referrer.endsWith('/aboutUs.html') ))
   if (!document.referrer.endsWith('/writeConfessionRules.html') && !document.referrer.endsWith('/aboutUs .html') ) {
       // Redirect the user back to index.html
       console.log(document.referrer)
