@@ -126,27 +126,34 @@ function writeConfession() {
    // }
 
     fetch(host + "/formStatus", {
-        method: 'GET', // or 'POST' if required
-        headers: {
-            'Content-Type': 'text/plain;charset=UTF-8',
-        },
-    })
-    .then(response => response.text())
-    .then(responseText => {
-        if (responseText === '1') {
-            text = "Make sure you are submitting only the story and not a query. \nif you are writing a query press 'Cancel'"
-            if (confirm(text) == true) {
-                window.open("writeConfessionRules.html", "_self")
-            }
-            else {
-                window.open("writeQuery.html", "_self")
-            }
-        } else if (responseText === '0') {
-            window.location.href = 'FormStatus.html'; // Redirect to another.html
+    method: 'GET',
+    headers: {
+        'Content-Type': 'text/plain;charset=UTF-8',
+    },
+})
+.then(response => response.text())
+.then(responseText => {
+    if (responseText === '1') {
+        const text = "Make sure you are submitting only the story and not a query.\nIf you are writing a query press 'Cancel'";
+        if (confirm(text)) {
+            window.open("writeConfessionRules.html", "_self");
+        } else {
+            window.open("writeQuery.html", "_self");
         }
-    })
-    .catch(error => console.error('Error:', error));
-    
+    } else if (responseText === '0') {
+        window.location.href = 'FormStatus.html';
+    } else {
+        // Unknown response — fallback
+        console.warn("Unexpected response:", responseText);
+        window.open("writeConfessionRules.html", "_self");
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
+    // Proceed even if fetch fails
+    alert("arghhhhh.... something is wrong... Proceeding anyway...");
+    window.open("writeConfessionRules.html", "_self");
+});
 
 }
 
