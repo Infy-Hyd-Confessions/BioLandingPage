@@ -10,7 +10,7 @@ const maxChars = 2000;
 function checkLength() {
     const text = message.value;
     const textLength = text.length;
-    
+
 
     current.textContent = maxChars - textLength;
 
@@ -54,7 +54,7 @@ function postQuery() {
             .catch(error => console.log('error', error))
             .then(() => {
                 window.open("https://t.me/infy_queries", "_blank");
-                // window.open("index.html", "_blank")
+                // window.location.href = "index.html"
             });
     }
 }
@@ -70,7 +70,7 @@ function postConfession() {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("Access-Control-Allow-Origin", "*");
-        
+
         var raw = JSON.stringify({
             "message": (age_gender.value + "\n\n" + message.value).trim()
         });
@@ -82,13 +82,13 @@ function postConfession() {
             redirect: 'follow'
         };
 
-        fetch(host+"/postConfession", requestOptions)
+        fetch(host + "/postConfession", requestOptions)
             .then(response => response.text())
             .then(result =>
                 alert(result))
             .catch(error => console.log('error', error))
-            .then(() => { 
-                window.open("index.html", "_blank")
+            .then(() => {
+                window.location.href = "index.html";
             });
 
     }
@@ -107,7 +107,7 @@ function writeQuery() {
     text = "Make sure you are writing the query in detail"
     if (confirm(text) == true) {
         console.log("true is received")
-        window.open("writeQuery.html", "_blank")
+        window.location.href = "writeQuery.html";
     }
 }
 
@@ -116,9 +116,9 @@ function writeConfession() {
     story.disabled = true;
     story.className = "btn btn-disabled"
 
-// Get the current day of the week (0 for Sunday, 6 for Saturday)
+    // Get the current day of the week (0 for Sunday, 6 for Saturday)
     const currentDay = new Date().getDay();
-    
+
     // Check if it's Saturday (6) or Sunday (0)
     //if (currentDay === 0 || currentDay === 6) {
     //    window.location.href = 'FormStatus.html';
@@ -126,34 +126,34 @@ function writeConfession() {
     // }
 
     fetch(host + "/formStatus", {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'text/plain;charset=UTF-8',
-    },
-})
-.then(response => response.text())
-.then(responseText => {
-    if (responseText === '1') {
-        const text = "Make sure you are submitting only the story and not a query.\nIf you are writing a query press 'Cancel'";
-        if (confirm(text)) {
-            window.open("writeConfessionRules.html", "_blank");
-        } else {
-            window.open("writeQuery.html", "_blank");
-        }
-    } else if (responseText === '0') {
-        window.open('FormStatus.html', '_blank');
-    } else {
-        // Unknown response — fallback
-        console.warn("Unexpected response:", responseText);
-        window.open("writeConfessionRules.html", "_blank");
-    }
-})
-.catch(error => {
-    console.error('Error:', error);
-    // Proceed even if fetch fails
-    alert("arghhhhh.... something is wrong... Proceeding anyway...");
-    window.open("writeConfessionRules.html", "_blank");
-});
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text/plain;charset=UTF-8',
+        },
+    })
+        .then(response => response.text())
+        .then(responseText => {
+            if (responseText === '1') {
+                const text = "Make sure you are submitting only the story and not a query.\nIf you are writing a query press 'Cancel'";
+                if (confirm(text)) {
+                    window.location.href = "writeConfessionRules.html";
+                } else {
+                    window.location.href = "writeQuery.html";
+                }
+            } else if (responseText === '0') {
+                window.location.href = 'FormStatus.html';
+            } else {
+                // Unknown response — fallback
+                console.warn("Unexpected response:", responseText);
+                window.location.href = "writeConfessionRules.html";
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Proceed even if fetch fails
+            alert("arghhhhh.... something is wrong... Proceeding anyway...");
+            window.location.href = "writeConfessionRules.html";
+        });
 
 }
 
