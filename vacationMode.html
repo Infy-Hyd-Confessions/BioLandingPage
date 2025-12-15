@@ -2,84 +2,83 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3SY8F9P01"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-Q3SY8F9P01');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Inactive</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+  <title>Vacation Mode</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
+  <script src="script.js" defer></script>
 </head>
 
 <body oncontextmenu="return false">
-  <!-- partial:index.partial.html -->
   <header>
-  <h1 class="logo">Infy Stories</h1>
-    <div class="left">
-      
-      <br>
+    <div class="logo" onclick="location.href ='index.html';">Infy Stories</div>
+    <nav>
       <ul>
         <li onclick="location.href ='index.html';">Home</li>
-        <li onclick="location.href ='imageCollection.html';">Photos</a></li>
-        <li onclick="location.href ='aboutUs.html';" class="active">About Us</li>
+        <li onclick="location.href ='imageCollection.html';">Photos</li>
+        <li onclick="location.href ='aboutUs.html';">About Us</li>
       </ul>
-    </div>
+    </nav>
   </header>
+
   <section id="hero">
-    <img src="./res/oops.png" alt="">
     <div class="left">
       <h5>Not Available till 1st week of Jan 2025 &#851212;</h5>
-      <h1 class="title">Ooops.... You caught us on our Vacation 🥳</h1>
-	  <p >We are on vacation and not accepting stories till Jan 1st week. Please try then.</p>
-	  <button onclick="location.href ='index.html';" class="btn btn-primary">Go Home 🏡</button>
-    </br>
-    <h1> (OR) </h1>
-	  <button onclick="location.href ='imageCollection.html';" class="btn btn-primary">Check DC Image Gallery 📸</button>
+      <h1 class="title">Oops... You Caught Us on Vacation 🥳</h1>
+      <p class="desc">We are on vacation and not accepting stories until the 1st week of Jan. Please try again then.</p>
 
-
-      <!--- Sample for Referance
-      <button onclick="location.href ='';" class="btn btn-secondary">Text</button>
-      -->
-
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button onclick="location.href ='index.html';" class="btn btn-primary">
+          <i class="fas fa-home"></i> Go Home
+        </button>
+        <button onclick="location.href ='imageCollection.html';" class="btn btn-secondary">
+          <i class="fas fa-camera"></i> Check DC Image Gallery
+        </button>
+      </div>
     </div>
 
+    <img src="./res/oops.png" alt="Vacation Illustration">
   </section>
+
   <footer>
     <div class="card">
       <div class="icon">
         <i class="fas fa-map-marker-alt"></i>
       </div>
       <div class="content">
-        <h3>Where are we 🐱‍💻 </h3>
+        <h3>Where are we?</h3>
         <p>Available on
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://instagram.com/infy_stories">Instagram</a>
-          &amp;
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://t.me/infy_stories">Telegram</a>
+          <a href="http://instagram.com/infy_stories">Instagram</a> &amp;
+          <a href="http://t.me/infy_stories">Telegram</a>
         </p>
       </div>
     </div>
     <div class="card">
       <div class="icon">
-        <i class="fas fa-code"></i>
+        <i class="fas fa-shield-alt"></i>
       </div>
       <div class="content">
         <h3>Clean Story</h3>
-        <p>Do not write offensive stories which may hurt fellow users</p>
+        <p>Do not write offensive stories which may hurt fellow users.</p>
       </div>
     </div>
   </footer>
-  <!-- partial -->
 
+  <div class="credit">
+    <a href="https://www.linkedin.com/in/upendra-thunuguntla/" target="_blank">Designed and Developed by
+      @Upendra-Thunuguntla</a>
+  </div>
 </body>
 
 </html>

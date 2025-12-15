@@ -2,100 +2,102 @@
 <html lang="en">
 
 <head>
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3SY8F9P01"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-    
-        gtag('config', 'G-Q3SY8F9P01');
-      </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3SY8F9P01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q3SY8F9P01');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Infy Stories</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body oncontextmenu="return false">
-  <!-- partial:index.partial.html -->
   <header>
-    <h1 onclick="location.href ='index.html';" class="logo">Infy Stories</h1>
-    <div class="left">
-
-      <br>
+    <div class="logo" onclick="location.href ='index.html';">Infy Stories</div>
+    <nav>
       <ul>
         <li onclick="location.href ='index.html';" class="active">Home</li>
-        
-        <li onclick="location.href ='imageCollection.html';">Photos</a></li>
+        <li onclick="location.href ='imageCollection.html';">Photos</li>
         <li onclick="location.href ='aboutUs.html';">About Us</li>
       </ul>
-    </div>
+    </nav>
   </header>
+
   <section id="hero">
-    <img src="res/virtual-reality.webp" alt="">
-    <!--https://cdn3d.iconscout.com/3d/premium/thumb/startup-3025714-2526912.png-->
-    <!--https://cdn3d.iconscout.com/3d/premium/thumb/man-holding-trophy-3118518-2606160@0.png-->
     <div class="left">
-      <h5>Active in Instagram and Telegram 😎❤️</h5>
-      <h1 class="title">Useful links at one place</h1>
-      <p class="desc">Every important link related to our page is shown below. Choose wherever you want to go and have fun
-        💻</p>
+      <h5><i class="fas fa-circle" style="font-size: 0.6em; color: #4ade80;"></i> Active on Instagram and Telegram</h5>
+      <h1 class="title">Useful links in one place</h1>
+      <p class="desc">Every important link related to our page is shown below. Choose where you want to go and have fun! 💻</p>
 
-       <button onclick="writeConfession()" id ="story" class="btn btn-primary">Submit your Story ✍️</button>
-       <button onclick="writeQuery()" class="btn btn-primary">Ask Your Query 🪶</button> 
-       <button onclick="location.href ='https://t.me/infy_discussions';" class="btn btn-secondary">Join Telegram Group 💡</button>
-      <p>If you can not join from above button search for @infy_stories(channel) and @infosy_discussions(group) in Telegram App and join both of them. </p>
+      <button onclick="writeConfession()" id="story" class="btn btn-primary">
+        <i class="fas fa-pen-nib"></i> Submit your Story
+      </button>
+      
+      <button onclick="writeQuery()" class="btn btn-secondary">
+        <i class="fas fa-question-circle"></i> Ask Your Query
+      </button> 
+      
+      <button onclick="location.href ='https://t.me/infy_discussions';" class="btn btn-secondary">
+        <i class="fab fa-telegram-plane"></i> Join Telegram Group
+      </button>
+      
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem; line-height: 1.4;">
+        If you cannot join from the button above, search for <strong>@infy_stories</strong> (channel) and <strong>@infosy_discussions</strong> (group) in the Telegram App.
+      </p>
 
-     <button onclick="location.href ='https://t.me/+UweA1m6yuc1kOWJl';" class="btn btn-secondary">Post/Search Vacancies 🏢</button>
+      <button onclick="location.href ='https://t.me/+UweA1m6yuc1kOWJl';" class="btn btn-secondary">
+        <i class="fas fa-briefcase"></i> Post/Search Vacancies
+      </button>
 
-      <button onclick="location.href ='imageCollection.html';" class="btn btn-secondary">DC Image Collection 📸</button>
+      <button onclick="location.href ='imageCollection.html';" class="btn btn-secondary">
+        <i class="fas fa-camera"></i> DC Image Collection
+      </button>
 
-      <button onclick="location.href ='https://impactapp.page.link/ZssQ7eyKqePdBuqS6';" class="btn btn-secondary">Join
-        Fitness Club 🏋🏻🏃🏻🧘🏻</button>
-
-      <!--- Sample for Reference
-      <button onclick="location.href ='';" class="btn btn-secondary">Text</button>
-      -->
-
+      <button onclick="location.href ='https://impactapp.page.link/ZssQ7eyKqePdBuqS6';" class="btn btn-secondary">
+        <i class="fas fa-running"></i> Join Fitness Club
+      </button>
 
     </div>
-
+    
+    <img src="res/virtual-reality.webp" alt="Virtual Reality Illustration">
   </section>
+
   <footer>
     <div class="card">
       <div class="icon">
         <i class="fas fa-map-marker-alt"></i>
       </div>
       <div class="content">
-        <h3>Where are we 🐱‍💻 </h3>
-        <p>Available on
-         
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://instagram.com/infy_stories">Instagram</a>
-          &amp;
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://t.me/infy_stories">Telegram</a>
+        <h3>Where are we?</h3>
+        <p>Available on 
+          <a href="http://instagram.com/infy_stories">Instagram</a> &amp; 
+          <a href="http://t.me/infy_stories">Telegram</a>
         </p>
       </div>
     </div>
+    
     <div class="card">
       <div class="icon">
-        <i class="fas fa-code"></i>
+        <i class="fas fa-shield-alt"></i>
       </div>
       <div class="content">
         <h3>Hygienic Platform</h3>
-        <p>Do not write offensive content which may hurt fellow users</p>
+        <p>We ensure a safe environment free from offensive content.</p>
       </div>
     </div>
   </footer>
-  <!-- partial -->
-  <div style="background-color: #FC5404; text-align: center; padding: 0.5%;">
-    <a class="socialmedia" style=" text-decoration: none; color: rgb(255, 255, 255);"
-          href="https://www.linkedin.com/in/upendra-thunuguntla/">Designed and Developed by @Upendra-Thunuguntla</a>
+
+  <div class="credit">
+    <a href="https://www.linkedin.com/in/upendra-thunuguntla/" target="_blank">Designed and Developed by @Upendra-Thunuguntla</a>
   </div>
 </body>
 

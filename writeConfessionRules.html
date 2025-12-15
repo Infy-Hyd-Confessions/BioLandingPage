@@ -2,77 +2,81 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3SY8F9P01"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-  
-      gtag('config', 'G-Q3SY8F9P01');
-    </script>
-    <script>
-      // Check if document.referrer ends with /index.html
-      if (!document.referrer.endsWith('/index.html')) {
-          // Redirect the user back to index.html
-          window.location.href = 'index.html';
-      }
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3SY8F9P01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q3SY8F9P01');
+  </script>
+  <script>
+    // Check if document.referrer ends with /index.html
+    if (!document.referrer.endsWith('/index.html')) {
+      // Redirect the user back to index.html
+      window.location.href = 'index.html';
+    }
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Story Rules</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
 </head>
 
 <body oncontextmenu="return false">
-  <!-- partial:index.partial.html -->
   <header>
-  <h1 onclick="location.href ='index.html';" class="logo">Infy Stories</h1>
-    <div class="left">
-      
-      <br>
+    <div class="logo" onclick="location.href ='index.html';">Infy Stories</div>
+    <nav>
       <ul>
         <li onclick="location.href ='index.html';">Home</li>
         <li onclick="location.href ='imageCollection.html';">Photos</li>
         <li onclick="location.href ='aboutUs.html';">About Us</li>
       </ul>
-    </div>
+    </nav>
   </header>
+
   <section id="hero">
-    <img src="./res/writeconfessionRules.png" alt="">
     <div class="left">
       <h5>Available most of the time &#128517;</h5>
       <h1 class="title">Read following Rules Before Writing a Story</h1>
-      <p class="descRules">
-        Hi, your story is anonymous feel free to share.<br><br>
-        1. Try to keep the story in english language.<br><br>
-        2. All the Queries related to our Organization, Hikes, Promotions &amp; Your Job offers etc.. should be asked in
-        our
-        <a style="text-decoration: none; color: #FC5404;" href="http://t.me/infy_stories">Telegram
-          Group</a>.<br><br>
-          Alternatively you can post your query anonymously in Telegram by clicking <a style="text-decoration: none; color: #FC5404;" href="writeQuery.html">here</a><br><br>
-        3. Never write against our organization and it's policies.<br><br>
-        4. Do not abuse anyone.<br><br>
-        5. We don't want your Matrimonial Profile or Love Application. Please keep them with you !!!<br>
-        <br>
-        If your story is still not posted, DM us on our
-        <a style="text-decoration: none; color: #FC5404;" href="http://instagram.com/infy_stories">Instagram
-          handle.</a><br>
-        <br>
-        **All rights reserved with the admin.</p>
+      <div class="descRules" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;">
+        <p style="margin-bottom: 1rem;">Hi, your story is anonymous feel free to share.</p>
+        <ol style="padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+          <li>Try to keep the story in English language.</li>
+          <li>All the Queries related to our Organization, Hikes, Promotions &amp; Your Job offers etc.. should be asked
+            in our
+            <a style="color: var(--primary); text-decoration: none; font-weight: 600;"
+              href="http://t.me/infy_stories">Telegram Group</a>.<br>
+            Alternatively you can post your query anonymously in Telegram by clicking <a
+              style="color: var(--primary); text-decoration: none; font-weight: 600;" href="writeQuery.html">here</a>.
+          </li>
+          <li>Never write against our organization and its policies.</li>
+          <li>Do not abuse anyone.</li>
+          <li>We don't want your Matrimonial Profile or Love Application. Please keep them with you !!!</li>
+        </ol>
 
-      <p>
-      <input type="checkbox" id="termsChkbx" onchange="isChecked(this, 'sub1')" /> <label for="termsChkbx">I Agree to Terms &amp; Conditions / Rules</label>
-      </p>
+        <p>If your story is still not posted, DM us on our
+          <a style="color: var(--primary); text-decoration: none; font-weight: 600;"
+            href="http://instagram.com/infy_stories">Instagram handle.</a>
+        </p>
 
-      <button onclick="location.href ='writeConfession.html';" class="btn btn-primary"
-        hidden="true" id="story">Write Story ✍️</button>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">**All rights reserved with the admin.</p>
+      </div>
 
-      <!--- Sample for Referance
-      <button onclick="location.href ='';" class="btn btn-secondary">Text</button>
-      -->
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+        <input type="checkbox" id="termsChkbx" onchange="isChecked(this, 'sub1')"
+          style="width: auto; margin: 0; cursor: pointer;">
+        <label for="termsChkbx" style="margin: 0; cursor: pointer; font-size: 1rem;">I Agree to Terms &amp; Conditions /
+          Rules</label>
+      </div>
+
+      <button onclick="location.href ='writeConfession.html';" class="btn btn-primary" hidden="true" id="story">
+        Write Story ✍️
+      </button>
+
       <script type="text/javascript">
         function isChecked(checkbox, sub1) {
           document.getElementById('story').hidden = !checkbox.checked;
@@ -81,37 +85,36 @@
 
     </div>
 
+    <img src="./res/writeconfessionRules.png" alt="Rules Illustration">
   </section>
+
   <footer>
     <div class="card">
       <div class="icon">
         <i class="fas fa-map-marker-alt"></i>
       </div>
       <div class="content">
-        <h3>Where are we 🐱‍💻 </h3>
+        <h3>Where are we?</h3>
         <p>Available on
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://instagram.com/infy_stories">Instagram</a>
-          &amp;
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://t.me/infy_stories">Telegram</a>
+          <a href="http://instagram.com/infy_stories">Instagram</a> &amp;
+          <a href="http://t.me/infy_stories">Telegram</a>
         </p>
       </div>
     </div>
     <div class="card">
       <div class="icon">
-        <i class="fas fa-code"></i>
+        <i class="fas fa-shield-alt"></i>
       </div>
       <div class="content">
         <h3>Clean Story</h3>
-        <p>Do not write offensive stories which may hurt fellow users</p>
+        <p>Do not write offensive stories which may hurt fellow users.</p>
       </div>
     </div>
   </footer>
-  <!-- partial -->
-  <div style="background-color: #FC5404; text-align: center; padding: 0.5%;">
-    <a class="socialmedia" style=" text-decoration: none; color: rgb(255, 255, 255);"
-          href="https://www.linkedin.com/in/upendra-thunuguntla/">Designed and Developed by @Upendra-Thunuguntla</a>
+
+  <div class="credit">
+    <a href="https://www.linkedin.com/in/upendra-thunuguntla/" target="_blank">Designed and Developed by
+      @Upendra-Thunuguntla</a>
   </div>
 </body>
 
