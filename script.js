@@ -53,8 +53,8 @@ function postQuery() {
             // .then(result => message.value="")
             .catch(error => console.log('error', error))
             .then(() => {
-                window.open("https://t.me/infy_queries", "_self");
-                // window.open("index.html", "_self")
+                window.open("https://t.me/infy_queries", "_blank");
+                // window.open("index.html", "_blank")
             });
     }
 }
@@ -88,7 +88,7 @@ function postConfession() {
                 alert(result))
             .catch(error => console.log('error', error))
             .then(() => { 
-                window.open("index.html", "_self")
+                window.open("index.html", "_blank")
             });
 
     }
@@ -107,7 +107,7 @@ function writeQuery() {
     text = "Make sure you are writing the query in detail"
     if (confirm(text) == true) {
         console.log("true is received")
-        window.open("writeQuery.html", "_self")
+        window.open("writeQuery.html", "_blank")
     }
 }
 
@@ -122,8 +122,8 @@ function writeConfession() {
     // Check if it's Saturday (6) or Sunday (0)
     //if (currentDay === 0 || currentDay === 6) {
     //    window.location.href = 'FormStatus.html';
-     //   return; // Skip the rest of the function
-   // }
+    //    return; // Skip the rest of the function
+    // }
 
     fetch(host + "/formStatus", {
     method: 'GET',
@@ -136,23 +136,23 @@ function writeConfession() {
     if (responseText === '1') {
         const text = "Make sure you are submitting only the story and not a query.\nIf you are writing a query press 'Cancel'";
         if (confirm(text)) {
-            window.open("writeConfessionRules.html", "_self");
+            window.open("writeConfessionRules.html", "_blank");
         } else {
-            window.open("writeQuery.html", "_self");
+            window.open("writeQuery.html", "_blank");
         }
     } else if (responseText === '0') {
-        window.location.href = 'FormStatus.html';
+        window.open('FormStatus.html', '_blank');
     } else {
         // Unknown response — fallback
         console.warn("Unexpected response:", responseText);
-        window.open("writeConfessionRules.html", "_self");
+        window.open("writeConfessionRules.html", "_blank");
     }
 })
 .catch(error => {
     console.error('Error:', error);
     // Proceed even if fetch fails
     alert("arghhhhh.... something is wrong... Proceeding anyway...");
-    window.open("writeConfessionRules.html", "_self");
+    window.open("writeConfessionRules.html", "_blank");
 });
 
 }
