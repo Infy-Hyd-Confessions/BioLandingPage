@@ -97,11 +97,11 @@ function postConfession() {
         myHeaders.append("Access-Control-Allow-Origin", "*");
 
         var rawMessage = message.value.trim();
-        var finalMessage = age_gender.value + "\n\n" + rawMessage;
+        var finalMessage = age_gender.value + "\n" + rawMessage;
 
         // If content starts with $, move it to the very beginning (above age/gender)
         if (rawMessage.startsWith('$')) {
-            finalMessage = "$\n" + age_gender.value + "\n\n" + rawMessage.substring(1).trim();
+            finalMessage = "$\n" + age_gender.value + "\n" + rawMessage.substring(1).trim();
         }
 
         var raw = JSON.stringify({
