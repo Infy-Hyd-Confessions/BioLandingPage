@@ -1,7 +1,3 @@
-
-var ip = "";
-
-// var host = "https://jarvis-ihcp-dev.vercel.app"
 var host = "https://jarvis-ihcp.vercel.app"
 
 const maxChars = 2000;
@@ -10,11 +6,10 @@ const maxChars = 2000;
 function checkLength() {
     const text = message.value;
     const textLength = text.length;
-    
 
     current.textContent = maxChars - textLength;
 
-    // If the text starts with a dollar symbol, exit the function
+    // If the text starts with a dollar symbol (About Us flag), ignore the character length limit
     if (text.startsWith('$')) {
         return;
     }
@@ -24,9 +19,34 @@ function checkLength() {
     }
 }
 
+// Custom Toast notification
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+
+    // Icon based on type
+    const icon = type === 'success' ? '✅' : '⚠️';
+    toast.innerHTML = `<span class="toast-icon">${icon}</span> <span class="toast-message">${message}</span>`;
+
+    document.body.appendChild(toast);
+
+    // Trigger slide in
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            toast.classList.add('show');
+        });
+    });
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 400);
+    }, 3000);
+}
+
 function postQuery() {
     if (document.getElementById("message").value == "") {
-        alert("Please enter your query");
+        showToast("Please enter your query", "error");
     } else {
         pq_button.innerText = "Submitting...."
         pq_button.disabled = true;
@@ -38,7 +58,7 @@ function postQuery() {
         var raw = JSON.stringify({
             "message": message.value
         });
-        // console.log(raw);
+
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
@@ -48,13 +68,18 @@ function postQuery() {
 
         fetch(host + "/postQuery", requestOptions)
             .then(response => response.text())
-            .then(result =>
-                alert(result))
-            // .then(result => message.value="")
-            .catch(error => console.log('error', error))
-            .then(() => {
-                window.open("https://t.me/infy_queries", "_self");
-                // window.open("index.html", "_self")
+            .then(result => {
+                showToast(result, 'success');
+                setTimeout(() => {
+                    window.open("https://t.me/infy_queries", "_self");
+                }, 2000);
+            })
+            .catch(error => {
+                console.log('error', error);
+                showToast("Failed to submit query!", "error");
+                pq_button.innerText = "Post Query ✍️";
+                pq_button.disabled = false;
+                pq_button.className = "btn btn-primary";
             });
     }
 }
@@ -62,7 +87,7 @@ function postQuery() {
 
 function postConfession() {
     if (document.getElementById("message").value == "") {
-        alert("Please enter your Story");
+        showToast("Please enter your Story", "error");
     } else {
         pc_button.innerText = "Submitting...."
         pc_button.disabled = true;
@@ -70,11 +95,19 @@ function postConfession() {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("Access-Control-Allow-Origin", "*");
-        
+
+        var rawMessage = message.value.trim();
+        var finalMessage = age_gender.value + "\n\n" + rawMessage;
+
+        // If content starts with $, move it to the very beginning (above age/gender)
+        if (rawMessage.startsWith('$')) {
+            finalMessage = "$\n" + age_gender.value + "\n\n" + rawMessage.substring(1).trim();
+        }
+
         var raw = JSON.stringify({
-            "message": (age_gender.value + "\n\n" + message.value).trim()
+            "message": finalMessage.trim()
         });
-        console.log(raw);
+
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
@@ -82,81 +115,143 @@ function postConfession() {
             redirect: 'follow'
         };
 
-        fetch(host+"/postConfession", requestOptions)
+        fetch(host + "/postConfession", requestOptions)
             .then(response => response.text())
-            .then(result =>
-                alert(result))
-            .catch(error => console.log('error', error))
-            .then(() => { 
-                window.open("index.html", "_self")
+            .then(result => {
+                showToast(result, 'success');
+                setTimeout(() => {
+                    window.open("index.html", "_self");
+                }, 2000);
+            })
+            .catch(error => {
+                console.log('error', error);
+                showToast("Failed to submit story!", "error");
+                pc_button.innerText = "Submit Story";
+                pc_button.disabled = false;
+                pc_button.className = "btn btn-primary";
             });
-
     }
 }
 
 
-
-// //get current ip address and store it in ip variable
-// function getIP() {
-//     json('https://jsonip.com').then(data => {
-//         ip = data.ip;
-//     });
-// }
-
 function writeQuery() {
     text = "Make sure you are writing the query in detail"
     if (confirm(text) == true) {
-        console.log("true is received")
         window.open("writeQuery.html", "_self")
     }
 }
 
 function writeConfession() {
-    story.innerText = "Loading...."
-    story.disabled = true;
-    story.className = "btn btn-disabled"
-
-// Get the current day of the week (0 for Sunday, 6 for Saturday)
-    const currentDay = new Date().getDay();
-    
-    // Check if it's Saturday (6) or Sunday (0)
-    //if (currentDay === 0 || currentDay === 6) {
-    //    window.location.href = 'FormStatus.html';
-     //   return; // Skip the rest of the function
-   // }
+    // Add loading visuals
+    const storyBtn = document.getElementById("story");
+    if (storyBtn) {
+        storyBtn.innerHTML = "<span class='spinner'></span> Loading...";
+        storyBtn.disabled = true;
+        storyBtn.classList.add("btn-disabled");
+    }
 
     fetch(host + "/formStatus", {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'text/plain;charset=UTF-8',
-    },
-})
-.then(response => response.text())
-.then(responseText => {
-    if (responseText === '1') {
-        const text = "Make sure you are submitting only the story and not a query.\nIf you are writing a query press 'Cancel'";
-        if (confirm(text)) {
-            window.open("writeConfessionRules.html", "_self");
-        } else {
-            window.open("writeQuery.html", "_self");
-        }
-    } else if (responseText === '0') {
-        window.location.href = 'FormStatus.html';
-    } else {
-        // Unknown response — fallback
-        console.warn("Unexpected response:", responseText);
-        window.open("writeConfessionRules.html", "_self");
-    }
-})
-.catch(error => {
-    console.error('Error:', error);
-    // Proceed even if fetch fails
-    alert("arghhhhh.... something is wrong... Proceeding anyway...");
-    window.open("writeConfessionRules.html", "_self");
-});
-
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text/plain;charset=UTF-8',
+        },
+    })
+        .then(response => response.text())
+        .then(responseText => {
+            if (responseText === '1') {
+                const text = "Make sure you are submitting only the story and not a query.\nIf you are writing a query press 'Cancel'";
+                if (confirm(text)) {
+                    window.open("writeConfessionRules.html", "_self");
+                } else {
+                    window.open("writeQuery.html", "_self");
+                }
+            } else if (responseText === '0') {
+                window.location.href = 'FormStatus.html';
+            } else {
+                console.warn("Unexpected response:", responseText);
+                window.open("writeConfessionRules.html", "_self");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast("Something went wrong... Proceeding anyway", "error");
+            setTimeout(() => {
+                window.open("writeConfessionRules.html", "_self");
+            }, 1500);
+        });
 }
 
 function json(url) {
     return fetch(url).then(res => res.json());
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   THEME TOGGLE — Dark / Light Mode
+   ═══════════════════════════════════════════════════════════ */
+(function initTheme() {
+    const saved = localStorage.getItem('infy-theme');
+    if (saved === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+    // Prevent flash of wrong theme
+    document.documentElement.classList.add('no-transition');
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            document.documentElement.classList.remove('no-transition');
+        });
+    });
+})();
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('infy-theme', next);
+
+    // Update all toggle icons on the page
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        // If next is light mode, icon changes to Moon (to switch back to dark)
+        btn.textContent = next === 'light' ? '🌙' : '☀️';
+    });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HAMBURGER MENU — Mobile Navigation
+   ═══════════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+
+        // Toggle open/close when hamburger is clicked
+        hamburger.addEventListener('click', function (e) {
+            e.stopPropagation(); // don't bubble to the document listener
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active', isOpen);
+        });
+
+        // Close when any nav link is clicked
+        navLinks.querySelectorAll('li').forEach(li => {
+            li.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Close when clicking anywhere outside the header
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('header')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            }
+        });
+    }
+
+    // Set correct theme icon on load
+    const theme = document.documentElement.getAttribute('data-theme') || 'dark'; // dark is default
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    });
+});
