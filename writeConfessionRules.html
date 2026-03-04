@@ -12,9 +12,10 @@
     gtag('config', 'G-Q3SY8F9P01');
   </script>
   <script>
-    // Check if document.referrer ends with /index.html
-    if (!document.referrer.endsWith('/index.html')) {
-      // Redirect the user back to index.html
+    // Strict redirect: prevent direct access & only allow from index
+    const ref = document.referrer.toLowerCase();
+    const isFromIndex = ref.includes('index') || ref.endsWith('/');
+    if (!ref || !isFromIndex) {
       window.location.href = 'index.html';
     }
   </script>
@@ -39,11 +40,7 @@
       </ul>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
     </div>
-    <div class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+
   </header>
 
   <section id="hero">
@@ -74,11 +71,10 @@
 
       <!-- ── Slide-to-Agree ── -->
       <div class="agree-slider-wrap" id="agreeSliderWrap">
-        <p class="slider-hint">Slide to agree to the rules →</p>
+        <p class="slider-hint">Slide to agree to the rules ➔</p>
         <div class="agree-track-wrap">
           <input type="range" id="agreeSlider" class="agree-slider" min="0" max="100" value="0"
             aria-label="Slide to agree">
-          <span class="slider-thumb-label">☰</span>
         </div>
       </div>
 
@@ -91,20 +87,32 @@
           const slider = document.getElementById('agreeSlider');
           const wrap = document.getElementById('agreeSliderWrap');
           const btn = document.getElementById('story');
+          let isAgreed = false;
 
           slider.addEventListener('input', function () {
-            // Fill the track up to wherever the thumb is
+            if (isAgreed) return;
             const pct = this.value;
             this.style.setProperty('--fill', pct + '%');
 
-            // Reveal button once past 30%
-            if (parseInt(pct) >= 30) {
+            // Reveal button only when fully slided (> 95%)
+            if (parseInt(pct) >= 95) {
+              isAgreed = true;
+              this.value = 100;
+              this.style.setProperty('--fill', '100%');
               wrap.classList.add('agreed');
               setTimeout(function () {
                 wrap.style.display = 'none';
                 btn.hidden = false;
                 btn.classList.add('agree-reveal');
               }, 400);
+            }
+          });
+
+          // Bounce back if user releases slider before the end
+          slider.addEventListener('change', function () {
+            if (!isAgreed && this.value < 95) {
+              this.value = 0;
+              this.style.setProperty('--fill', '0%');
             }
           });
         })();

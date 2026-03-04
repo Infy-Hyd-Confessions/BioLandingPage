@@ -217,38 +217,9 @@ function toggleTheme() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HAMBURGER MENU — Mobile Navigation
+   THEME TOGGLE
    ═══════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (hamburger && navLinks) {
-
-        // Toggle open/close when hamburger is clicked
-        hamburger.addEventListener('click', function (e) {
-            e.stopPropagation(); // don't bubble to the document listener
-            const isOpen = navLinks.classList.toggle('open');
-            hamburger.classList.toggle('active', isOpen);
-        });
-
-        // Close when any nav link is clicked
-        navLinks.querySelectorAll('li').forEach(li => {
-            li.addEventListener('click', function () {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('open');
-            });
-        });
-
-        // Close when clicking anywhere outside the header
-        document.addEventListener('click', function (e) {
-            if (!e.target.closest('header')) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('open');
-            }
-        });
-    }
-
     // Set correct theme icon on load
     const theme = document.documentElement.getAttribute('data-theme') || 'dark'; // dark is default
     document.querySelectorAll('.theme-toggle').forEach(btn => {

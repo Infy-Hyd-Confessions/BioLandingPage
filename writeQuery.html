@@ -12,9 +12,11 @@
     gtag('config', 'G-Q3SY8F9P01');
   </script>
   <script>
-    // Check if document.referrer ends with /writeConfessionRules.html
-    if (!document.referrer.endsWith('/writeConfessionRules.html') && !document.referrer.endsWith('/index.html')) {
-      // Redirect the user back to index.html
+    // Strict redirect: prevent direct access
+    const ref = document.referrer.toLowerCase();
+    const isFromIndex = ref.includes('index') || ref.endsWith('/');
+    const isFromRules = ref.includes('writeconfessionrules');
+    if (!ref || (!isFromIndex && !isFromRules)) {
       window.location.href = 'index.html';
     }
   </script>
@@ -39,11 +41,7 @@
       </ul>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
     </div>
-    <div class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+
   </header>
 
   <section id="hero">
