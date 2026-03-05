@@ -1014,18 +1014,18 @@ input[type="checkbox"]+label {
    UX COMPONENTS (Toasts & Spinners)
    ═══════════════════════════════════════════════════════════ */
 
-/* Toast Notification */
+/* Toast Notification — pinned to bottom so it's visible while typing */
 .toast {
   position: fixed;
-  top: 20px;
+  bottom: 24px;
   left: 50%;
-  transform: translate(-50%, -20px);
+  transform: translate(-50%, 20px);
   background: var(--nav-bg);
   color: var(--text-primary);
   padding: 1rem 1.5rem;
   border-radius: 16px;
   border: 1px solid var(--glass-border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   display: flex;
@@ -1038,6 +1038,7 @@ input[type="checkbox"]+label {
   visibility: hidden;
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.4s;
   pointer-events: none;
+  max-width: 90vw;
 }
 
 .toast.show {
@@ -1056,6 +1057,46 @@ input[type="checkbox"]+label {
 
 .toast-icon {
   font-size: 1.2rem;
+}
+
+/* Input error — red glow + wiggle */
+.input-error {
+  animation: inputShake 0.45s ease-in-out;
+  border-color: var(--red-accent) !important;
+  box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.35),
+    0 0 18px rgba(251, 113, 133, 0.15) !important;
+}
+
+@keyframes inputShake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  15% {
+    transform: translateX(-6px);
+  }
+
+  30% {
+    transform: translateX(5px);
+  }
+
+  45% {
+    transform: translateX(-4px);
+  }
+
+  60% {
+    transform: translateX(3px);
+  }
+
+  75% {
+    transform: translateX(-2px);
+  }
+
+  90% {
+    transform: translateX(1px);
+  }
 }
 
 /* Loading Spinner */

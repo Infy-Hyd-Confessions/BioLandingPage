@@ -20,7 +20,8 @@ function checkLength() {
 }
 
 // Custom Toast notification
-function showToast(message, type = 'success') {
+// targetEl: optional — the input/textarea to shake on error
+function showToast(message, type = 'success', targetEl = null) {
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
 
@@ -37,6 +38,14 @@ function showToast(message, type = 'success') {
         });
     });
 
+    // Red glow + wiggle on the target input/textarea on error
+    if (type === 'error' && targetEl) {
+        targetEl.classList.remove('input-error'); // reset if already applied
+        void targetEl.offsetWidth; // force reflow to restart animation
+        targetEl.classList.add('input-error');
+        setTimeout(() => targetEl.classList.remove('input-error'), 500);
+    }
+
     // Remove after 3 seconds
     setTimeout(() => {
         toast.classList.remove('show');
@@ -46,7 +55,7 @@ function showToast(message, type = 'success') {
 
 function postQuery() {
     if (document.getElementById("message").value == "") {
-        showToast("Please enter your query", "error");
+        showToast("Please enter your query", "error", document.getElementById("message"));
     } else {
         pq_button.innerText = "Submitting...."
         pq_button.disabled = true;
@@ -87,7 +96,7 @@ function postQuery() {
 
 function postConfession() {
     if (document.getElementById("message").value == "") {
-        showToast("Please enter your Story", "error");
+        showToast("Please enter your Story", "error", document.getElementById("message"));
     } else {
         pc_button.innerText = "Submitting...."
         pc_button.disabled = true;
@@ -238,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') {
             if (allowedCharsRegex.test(e.target.value)) {
                 e.target.value = e.target.value.replace(allowedCharsRegex, '');
-                showToast("Please use English language", "error");
+                showToast("Please use English language", "error", e.target);
 
                 // Keep the character count updated correctly if it's the message block
                 if (e.target.id === 'message' && typeof checkLength === 'function') {
