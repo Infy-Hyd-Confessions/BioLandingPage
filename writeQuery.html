@@ -15,7 +15,7 @@
     // Strict redirect: prevent direct access
     const ref = document.referrer.toLowerCase();
     const isFromIndex = ref.includes('index') || ref.endsWith('/');
-    const isFromRules = ref.includes('writeconfessionrules');
+    const isFromRules = ref.includes('writeconfessionrules') || ref.includes('aboutus');
     if (!ref || (!isFromIndex && !isFromRules)) {
       window.location.href = 'index.html';
     }
