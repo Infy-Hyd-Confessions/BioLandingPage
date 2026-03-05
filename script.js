@@ -225,4 +225,26 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.theme-toggle').forEach(btn => {
         btn.textContent = theme === 'light' ? '🌙' : '☀️';
     });
+
+    // Language restriction: Only allow English, emojis, symbols & special chars
+    // Whitelist approach — strips anything that isn't:
+    //   - Basic Latin (A-Z, a-z, 0-9, punctuation, symbols)
+    //   - Common whitespace (space, tab, newline)
+    //   - Emojis & pictographs (major Unicode emoji blocks)
+    //   - Currency symbols, arrows, misc symbols, etc.
+    const allowedCharsRegex = /[^\x20-\x7E\t\n\r\u00A0-\u00FF\u2000-\u27FF\u2900-\u2BFF\uFE00-\uFEFF\u{1F000}-\u{1FAFF}\u{1F600}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}\u{20E3}\u{E0020}-\u{E007F}]/gu;
+
+    document.body.addEventListener('input', function (e) {
+        if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') {
+            if (allowedCharsRegex.test(e.target.value)) {
+                e.target.value = e.target.value.replace(allowedCharsRegex, '');
+                showToast("Please use English language", "error");
+
+                // Keep the character count updated correctly if it's the message block
+                if (e.target.id === 'message' && typeof checkLength === 'function') {
+                    checkLength();
+                }
+            }
+        }
+    });
 });
