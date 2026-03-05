@@ -1014,18 +1014,18 @@ input[type="checkbox"]+label {
    UX COMPONENTS (Toasts & Spinners)
    ═══════════════════════════════════════════════════════════ */
 
-/* Toast Notification — pinned to bottom so it's visible while typing */
+/* Toast Notification — positioned via JS to stay in the visible viewport */
 .toast {
   position: fixed;
-  bottom: 24px;
+  top: 20px;
   left: 50%;
-  transform: translate(-50%, 20px);
+  transform: translate(-50%, -20px);
   background: var(--nav-bg);
   color: var(--text-primary);
   padding: 1rem 1.5rem;
   border-radius: 16px;
   border: 1px solid var(--glass-border);
-  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   display: flex;

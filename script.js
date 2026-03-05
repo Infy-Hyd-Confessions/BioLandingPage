@@ -29,6 +29,11 @@ function showToast(message, type = 'success', targetEl = null) {
     const icon = type === 'success' ? '✅' : '⚠️';
     toast.innerHTML = `<span class="toast-icon">${icon}</span> <span class="toast-message">${message}</span>`;
 
+    // Position toast at the top of the VISIBLE viewport (handles mobile keyboard)
+    if (window.visualViewport) {
+        toast.style.top = (window.visualViewport.offsetTop + 16) + 'px';
+    }
+
     document.body.appendChild(toast);
 
     // Trigger slide in
