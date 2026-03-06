@@ -2,56 +2,55 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3SY8F9P01"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-Q3SY8F9P01');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Inactive</title>
+  <title>On Vacation</title>
+  <meta name="description" content="Infy Stories is currently on vacation. Check back soon!">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
+  <script src="script.js"></script>
 </head>
 
 <body oncontextmenu="return false">
-  <!-- partial:index.partial.html -->
   <header>
-  <h1 class="logo">Infy Stories</h1>
-    <div class="left">
-      
-      <br>
+    <h1 onclick="location.href ='index.html';" class="logo">Infy Stories</h1>
+    <div class="nav-links" id="navLinks">
       <ul>
         <li onclick="location.href ='index.html';">Home</li>
-        <li onclick="location.href ='imageCollection.html';">Photos</a></li>
-        <li onclick="location.href ='aboutUs.html';" class="active">About Us</li>
+        <li onclick="location.href ='imageCollection.html';">Photos</li>
+        <li onclick="location.href ='aboutUs.html';">About Us</li>
       </ul>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
     </div>
+
   </header>
+
   <section id="hero">
-    <img src="./res/oops.png" alt="">
+    <img src="./res/hero-closed.webp" alt="Vacation illustration">
     <div class="left">
-      <h5>Not Available till 1st week of Jan 2025 &#851212;</h5>
+      <h5>Not Available till 1st week of Jan 2025 &#8212;</h5>
       <h1 class="title">Ooops.... You caught us on our Vacation 🥳</h1>
-	  <p >We are on vacation and not accepting stories till Jan 1st week. Please try then.</p>
-	  <button onclick="location.href ='index.html';" class="btn btn-primary">Go Home 🏡</button>
-    </br>
-    <h1> (OR) </h1>
-	  <button onclick="location.href ='imageCollection.html';" class="btn btn-primary">Check DC Image Gallery 📸</button>
-
-
-      <!--- Sample for Referance
-      <button onclick="location.href ='';" class="btn btn-secondary">Text</button>
-      -->
+      <p>We are on vacation and not accepting stories till Jan 1st week. Please try then.</p>
+      <button onclick="location.href ='index.html';" class="btn btn-primary">Go Home 🏡</button>
+      <br>
+      <h1 class="title" style="font-size: 1.5rem; margin: 0.5rem 0;"> (OR) </h1>
+      <button onclick="location.href ='imageCollection.html';" class="btn btn-primary">Check DC Image Gallery
+        📸</button>
 
     </div>
 
   </section>
+
   <footer>
     <div class="card">
       <div class="icon">
@@ -60,11 +59,9 @@
       <div class="content">
         <h3>Where are we 🐱‍💻 </h3>
         <p>Available on
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://instagram.com/infy_stories">Instagram</a>
+          <a class="socialmedia" href="http://instagram.com/infy_stories">Instagram</a>
           &amp;
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://t.me/infy_stories">Telegram</a>
+          <a class="socialmedia" href="http://t.me/infy_stories">Telegram</a>
         </p>
       </div>
     </div>
@@ -78,7 +75,10 @@
       </div>
     </div>
   </footer>
-  <!-- partial -->
+
+  <div class="credit-bar">
+    <a href="https://www.linkedin.com/in/upendra-thunuguntla/">Designed and Developed by @Upendra-Thunuguntla</a>
+  </div>
 
 </body>
 

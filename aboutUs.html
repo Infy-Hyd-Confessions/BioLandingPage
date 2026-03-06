@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3SY8F9P01"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-Q3SY8F9P01');
@@ -14,39 +14,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
+  <meta name="description" content="Learn about Infy Stories — who we are and what we do.">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./res/logoBig-noBg.png" type="image/icon type">
+  <script src="script.js"></script>
 </head>
 
 <body oncontextmenu="return false">
-  <!-- partial:index.partial.html -->
   <header>
-  <h1 class="logo">Infy Stories</h1>
-    <div class="left">
-      
-      <br>
+    <h1 onclick="location.href ='index.html';" class="logo">Infy Stories</h1>
+    <div class="nav-links" id="navLinks">
       <ul>
         <li onclick="location.href ='index.html';">Home</li>
-        <li onclick="location.href ='imageCollection.html';">Photos</a></li>
+        <li onclick="location.href ='imageCollection.html';">Photos</li>
         <li onclick="location.href ='aboutUs.html';" class="active">About Us</li>
       </ul>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
     </div>
+
   </header>
+
   <section id="hero">
-    <img src="./res/logoBig-noBg.png" alt="">
+    <img src="./res/hero-about.webp" alt="About us illustration">
     <div class="left">
       <h5>Available most of the time &#128517;</h5>
       <h1 class="title">About Us &amp; Who we are</h1>
       <p class="descRules">
+        So basically, <strong>Infy Stories</strong> started as a random Instagram page (<strong><a
+            style="color: var(--accent); text-decoration: none;"
+            href="http://instagram.com/infy_stories">@infy_stories</a></strong>) where Infoscians could rant, vent,
+        share stories, and ask stuff — all without anyone knowing who you are. And somehow... it actually blew up
+        😅<br><br>
+        Think of it as your anonymous campus buddy. Wanna know about hikes? Ask away. Got a funny hostel story from
+        Mysore? Drop it. Confused about some policy nobody understands? Same, but at least we can talk about it
+        here.<br><br>
+        We're on <a style="color: var(--accent); text-decoration: none;"
+          href="http://instagram.com/infy_stories">Instagram</a> and <a
+          style="color: var(--accent); text-decoration: none;" href="http://t.me/infy_stories">Telegram</a>, and yes, we
+        do read everything 👀<br><br>
+        Just 1️⃣ rule: Don't be a jerk. Keep it clean, keep it fun, and don't write stuff that'll get HR on our case.
+        Cool? Cool.
       </p>
-      <!--- Sample for Referance
-      <button onclick="location.href ='';" class="btn btn-secondary">Text</button>
-      -->
 
+      <button onclick="writeConfession()" id="story" class="btn btn-primary">Submit your Story ✍️</button>
+      <button onclick="writeQuery()" class="btn btn-primary">Ask Your Query 🪶</button>
     </div>
-
   </section>
+
   <footer>
     <div class="card">
       <div class="icon">
@@ -55,11 +70,9 @@
       <div class="content">
         <h3>Where are we 🐱‍💻 </h3>
         <p>Available on
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://instagram.com/infy_stories">Instagram</a>
+          <a class="socialmedia" href="http://instagram.com/infy_stories">Instagram</a>
           &amp;
-          <a class="socialmedia" style="text-decoration: none; color: red;"
-            href="http://t.me/infy_stories">Telegram</a>
+          <a class="socialmedia" href="http://t.me/infy_stories">Telegram</a>
         </p>
       </div>
     </div>
@@ -73,7 +86,6 @@
       </div>
     </div>
   </footer>
-  <!-- partial -->
 
 </body>
 
